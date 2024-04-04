@@ -48,9 +48,7 @@ import CustomModal from "./custom-modal";
 
     setTodoAddEnable(false);
     setIsLoading(true);
-    // setTimeout(() => {
-    //   console.log("지연...");
-    // }, 1000);
+
     await new Promise(f => setTimeout(f, 600));
     await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/todos`, {
       method: 'post',
@@ -63,7 +61,6 @@ import CustomModal from "./custom-modal";
     
     setNewTodoInput('');
     router.refresh();
-    setIsLoading(false);
     notifySuccessEvent("할일이 성공적으로 추가되었습니다!");
     
     console.log(`할일 추가완료: ${newTodoInput}`);
@@ -207,7 +204,8 @@ import CustomModal from "./custom-modal";
         />
         {
           todoAddEnable ? 
-          <Button color="warning" className="h-14" onPress={async () => {
+          <Button color="warning" className="h-14" 
+            onPress={async () => {
             await addAtodoHandler(newTodoInput)
           }}>
             추가
