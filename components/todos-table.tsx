@@ -64,7 +64,7 @@ import CustomModal from "./custom-modal";
     setNewTodoInput('');
     router.refresh();
     setIsLoading(false);
-    notifyTodoAddedEvent("할일이 성공적으로 추가되었습니다!");
+    notifySuccessEvent("할일이 성공적으로 추가되었습니다!");
     
     console.log(`할일 추가완료: ${newTodoInput}`);
   };
